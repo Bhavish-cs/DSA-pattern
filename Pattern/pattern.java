@@ -9,7 +9,7 @@ public class pattern {
         int n = sc.nextInt();
 
         System.out.println("\nPattern 1: Decreasing Numbers");
-        printDecreasingNumbers(n);
+        onlycharacter(n);
        
     }
 
@@ -90,4 +90,67 @@ public class pattern {
             System.out.println();
         }
     }
+
+    public static void printnumbertraingle(int n) {
+
+        int number = 1;
+
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print(number + " ");
+                number++;
+
+            }
+            System.out.println();
+        }
+
+    }
+
+    //A
+    //AB
+    //ABC
+    
+    public static void characterpyramid(int n) {
+
+        for (int i = 0; i < n; i++) {
+
+            for (char ch = 'A'; ch <= 'A' + i; ch++) {
+                System.out.print(ch);
+            }
+            System.out.println();
+        }
+
+    }
+    //ABC
+    //AB
+    //A
+
+    public static void reversecharacterpyramid(int n) {
+
+        for (int i = 0; i < n; i++) {
+
+            for (char ch = 'A'; ch <= 'A' + n - i; ch++) {
+                System.out.print(ch);
+            }
+            System.out.println();
+        }
+
+    }
+
+    //A
+    //BB
+    //CCC
+    
+    public static void onlycharacter(int n) {
+
+        for (int i = 0; i < n; i++) {
+
+            for (char ch = 'A'; ch <= 'A'+ i; ch++) {
+                System.out.print(ch);
+            }
+            System.out.println();
+        }
+
+    }
+
 }
