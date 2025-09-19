@@ -9,8 +9,8 @@ public class pattern {
         int n = sc.nextInt();
 
         System.out.println("\nPattern 1: Decreasing Numbers");
-        onlycharacter(n);
-       
+        somerandom(n);
+
     }
 
     public static void printDecreasingNumbers(int n) {
@@ -109,7 +109,7 @@ public class pattern {
     //A
     //AB
     //ABC
-    
+
     public static void characterpyramid(int n) {
 
         for (int i = 0; i < n; i++) {
@@ -140,17 +140,69 @@ public class pattern {
     //A
     //BB
     //CCC
-    
+
     public static void onlycharacter(int n) {
 
         for (int i = 0; i < n; i++) {
+            char ch1 = (char) ('A' + i);
+            for (int j = 0; j <= i; j++) {
+                System.out.print(ch1);
+            }
+            System.out.println();
 
-            for (char ch = 'A'; ch <= 'A'+ i; ch++) {
+        }
+    }
+    //     A
+    //    ABA
+    //   ABCBA
+    //  ABCDCBA
+    // ABCDEDCBA
+
+
+    
+    public static void pyramidcharacter(int n) {
+        for (int i = 0; i < n; i++) {
+            //space
+            for (int k = 0; k < n - i - 1; k++) {
+                System.out.print(" ");
+            }
+            //Alphabet
+            char ch = 'A';
+            int breakpoint = (2 * i + 1) / 2;
+            for (int j = 0; j < 2 * i + 1; j++) {
                 System.out.print(ch);
+                if (j < breakpoint) {
+                    ch++;
+                } else {
+                    ch--;
+                }
             }
             System.out.println();
         }
-
     }
+    
 
+    public static void somerandom(int n) {
+        for (int i = 0; i <= n; i++) {
+            for (char c = (char) ('E' - i); c <= 'E'; c++) {
+                System.out.print(c);
+
+            }
+            System.err.println();
+        }
+    }
 }
+  
+    
+
+
+
+
+
+
+
+
+
+
+
+
