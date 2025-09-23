@@ -9,7 +9,7 @@ public class pattern {
         int n = sc.nextInt();
 
         System.out.println("\nPattern 1: Decreasing Numbers");
-        somerandom(n);
+        squarespacepattern(n); 
 
     }
 
@@ -182,18 +182,128 @@ public class pattern {
     }
     
 
-    public static void somerandom(int n) {
-        for (int i = 0; i <= n; i++) {
-            for (char c = (char) ('E' - i); c <= 'E'; c++) {
-                System.out.print(c);
 
-            }
-            System.err.println();
+// E
+// DE
+// CDE
+// BCDE
+// ABCDE
+
+public static void somerandom(int n) {
+    for (int i = 0; i <= n; i++) {
+        for (char c = (char) ('E' - i); c <= 'E'; c++) {
+            System.out.print(c);
+
         }
+        System.err.println();
+    }
+
+}
+// ****** ******
+// *****   *****
+// ****     ****
+// ***       ***
+// **         **
+// *           *
+// *           *
+// **         **
+// ***       ***
+// ****     ****
+// *****   *****
+// ****** ******
+
+public static void butterfly(int n) {
+    for (int i = 0; i <= n; i++) {
+        //star
+        for (int j = 0; j <= n - i; j++) {
+            System.out.print("*");
+        }
+        for (int j = 0; j <= 2 * i; j++) {
+            System.out.print(" ");
+        }
+
+        //star
+        for (int j = 0; j <= n - i; j++) {
+            System.out.print("*");
+        }
+        System.out.println();
+    }
+    for (int i = 0; i <= n; i++) {
+        //star
+        for (int j = 0; j <= i; j++) {
+            System.out.print("*");
+        }
+        for (int j = 0; j <= 2 * n - (2 * i); j++) {
+            System.out.print(" ");
+        }
+
+        //star
+        for (int j = 0; j <= i; j++) {
+            System.out.print("*");
+        }
+        System.out.println();
     }
 }
-  
+
+
+// *        *
+// **      **
+// ***    ***
+// ****  ****
+// **********
+// ****  ****
+// ***    ***
+// **      **
+// *        *
+
+public static void starbuttefly4(int n) {
+    int space = 2 * n - 2;
+    for (int i = 1; i <= 2 * n - 1; i++) {
+        int star = i;
+        if (i > n) {
+            star = 2 * n - i;
+        }
+        // star
+        for (int j = 1; j <= star; j++)
+            System.out.print("*");
+
+        //space
+        for (int j = 1; j <= space; j++) {
+            System.out.print(" ");
+
+        }
+
+        // star
+        for (int j = 1; j <= star; j++)
+            System.out.print("*");
+        System.out.println();
+
+        if (i < n) {
+            space -= 2;
+        } else {
+            space += 2;
+        }
+
+    }
+}
+
+public static void squarespacepattern(int n) {
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j <n; j++) {
+            if (i == 0 || i == n-1 || j == 0 || j == n-1){
+                System.out.print("*");
+            }else{
+                System.out.print(" ");
+            }
+            
+        }
+     System.out.println();
+
+    }
     
+}
+  
+}
 
 
 
