@@ -10,25 +10,21 @@ public class random {
         int n = sc.nextInt();
 
         System.out.println("OutPut:\n");
-        primenumber(n);
-        if (primenumber(n)) {
-            System.out.println(n + " is a prime number");
-        } else {
-            System.out.println(n + " is not a prime number");
-        }
+        divisionrule(n);
+
     }
     //number of the digit in the one number 
 
     public static void countthedigit(int n) {
         int count = 0;
         while (n > 0) {
-             n = n / 10;
+            n = n / 10;
             count++;
-           
+
         }
         System.out.println("Number of digits: " + count);
     }
-    
+
     //reverse the  number like 443 into 344 and the 4403 where we omit the 0 so the output become 344
 
     public static void reversethenumber9(int n) {
@@ -48,7 +44,7 @@ public class random {
         }
 
     }
-    
+
     public static void armsstrongnumber(int n) {
         int num = n;
         int sum = 0;
@@ -79,22 +75,22 @@ public class random {
         }
     }
 
-    public static boolean  primenumber(int n) {
-        
-        if (n < 2) return false;
-        if (n == 2) return true;
-        if (n % 2 == 0) return false;
+    public static boolean primenumber(int n) {
+
+        if (n < 2)
+            return false;
+        if (n == 2)
+            return true;
+        if (n % 2 == 0)
+            return false;
         int limit = (int) Math.sqrt(n);
-        for (int i = 3; i <= limit; i +=2) {
+        for (int i = 3; i <= limit; i += 2) {
             if (n % i == 0)
                 return false;
         }
         return true;
 
-
     }
-    
-
-    }
+}
 
     
