@@ -117,17 +117,54 @@ public class sorting {
         if (n == 1)
             return;
 
-        for (int i = 0; i <= n-1; i++) {
+        for (int i = 0; i <= n - 1; i++) {
             if (arr[i] > arr[i + 1]) {
                 int temp = arr[i];
-                arr[i] = arr[i+1];
-                arr[i+1] = temp;
+                arr[i] = arr[i + 1];
+                arr[i + 1] = temp;
 
             }
         }
-            recursivebubblesort(arr, n-1);
+        recursivebubblesort(arr, n - 1);
     }
 
+    public static int  parttion(int[] arr, int low, int high) {
+        int pivot = arr[low];
+        int i = low;
+        int j = high;
+        while (i < j) {
+            while (arr[i] <= pivot && i <= high - 1) {
+                i++;
+            }
+            while (arr[j] > pivot && j >= low + 1) {
+                j--;
+            }
+            if (i < j) {
+
+                swap(arr, i, j);
+            }
+
+        }
+        swap(arr , low , j);
+            return j;
+
+    }
+
+    public static  void swap(int[] arr, int i, int j) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+
+    public static void quciksort(int[] arr, int low, int high) {
+        if (low < high) {
+            int parttion = parttion(arr, low, high);
+            quciksort(arr, low, parttion - 1);
+            quciksort(arr, parttion + 1, high);
+        }
+    }
+
+   
     //  Method to print array (optional utility)
     public static void printArray(int[] nums) {
         for (int n : nums) {
@@ -141,8 +178,7 @@ public class sorting {
         int[] nums = {2, 0, 2, 1, 1, 0};
 
         
-        recursivebubblesort(nums, nums.length-1);    
-
+quciksort(nums, 0, nums.length-1);
         // print result
         printArray(nums);
     }
