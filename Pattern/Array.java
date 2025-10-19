@@ -40,6 +40,48 @@ public class Array {
         System.out.println("Second Largest = " + secLarge);
     }
 
+    public static void leftarray(int[] nums, int d) {
+        int n = nums.length;
+        int k = d % n;
+        int[] temp = new int[n];
+        for (int i = 0; i < k; i++) {
+
+            temp[i] = nums[i];
+
+        }
+
+        // shifiting 
+        for (int i = k; i < n; i++) {
+            nums[i - k] = nums[i];
+        }
+        for (int i = 0; i < k; i++) {
+            nums[n - k + i] = temp[i];
+        }
+
+    }
+    
+    public static void reverse(int[] arr, int start, int end) {
+        while (start < end) {
+            int temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
+            start++;
+            end--;
+
+        }
+    }
+
+    public static void optimalreverse(int[] arr, int k) {
+        int n = arr.length;
+        int d = k % n;
+
+        reverse(arr, 0, d-1);
+        reverse(arr, d , n-1);
+        reverse(arr, 0, n-1);
+
+
+    }
+
     public static void printArray(int[] nums) {
         for (int n : nums) {
             System.out.print(n + " ");
@@ -47,9 +89,14 @@ public class Array {
         System.out.println();
     }
 
+  
     public static void main(String[] args) {
         int[] nums = {2, 0, 2, 1, 1, 0};
         printArray(nums);
-        largestSmallest(nums, nums.length);
+        optimalreverse(nums, 3);
+
+          System.out.println("After rotation:");
+        printArray(nums);
+
     }
 }
