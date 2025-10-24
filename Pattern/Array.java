@@ -1,3 +1,6 @@
+
+import java.util.HashMap;
+
 public class Array {
 
     public static int findSmallest(int[] arr, int n) {
@@ -75,13 +78,29 @@ public class Array {
         int n = arr.length;
         int d = k % n;
 
-        reverse(arr, 0, d-1);
-        reverse(arr, d , n-1);
-        reverse(arr, 0, n-1);
-
+        reverse(arr, 0, d - 1);
+        reverse(arr, d, n - 1);
+        reverse(arr, 0, n - 1);
 
     }
 
+
+    public static  int[] twosumoptimal(int[] arr, int target) {
+        HashMap< Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i <arr.length; i++) {
+            int complement = target - arr[i];
+            if (map.containsKey(complement)) {
+                return new int[] { map.get(complement), i };
+            } else {
+                map.put(arr[i], i);
+            }
+        }
+        return new int[]{}; // if no pair found
+
+        }
+    
+
+ 
     public static void printArray(int[] nums) {
         for (int n : nums) {
             System.out.print(n + " ");
@@ -91,12 +110,12 @@ public class Array {
 
   
     public static void main(String[] args) {
-        int[] nums = {2, 0, 2, 1, 1, 0};
-        printArray(nums);
-        optimalreverse(nums, 3);
+        int[] nums = {2, 0, 2, 1, 3,  1, 0};
+        int[] result = twosumoptimal(nums, 4); // store returned array
+        printArray(result);
 
-          System.out.println("After rotation:");
-        printArray(nums);
+
+          
 
     }
 }
